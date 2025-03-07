@@ -10,7 +10,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class EmailPageComponent {
 
-  apiUrl: string = "https://localhost:8080/api/email";
+  apiUrl: string = "http://localhost:8080/api/email";
+
+  response: String = '';
 
   emailObj: any = {
     emailContent: '',
@@ -21,9 +23,10 @@ export class EmailPageComponent {
   
   onSubmit(){
     console.log(this.emailObj);
-    this.http.post(`${this.apiUrl}/generate`, this.emailObj).subscribe((result: any) => {
+    this.http.post(`${this.apiUrl}/generate`, this.emailObj, {responseType: 'text'}).subscribe((result: any) => {
       if(result){
         alert("Message Generated Successfully")
+        this.response = result;
         console.log(result);
       } else {
         console.log(result);
