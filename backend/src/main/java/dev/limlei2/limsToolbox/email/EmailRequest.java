@@ -1,4 +1,4 @@
-package dev.limlei2.emailWriterAI;
+package dev.limlei2.limsToolbox.email;
 
 import lombok.Data;
 
