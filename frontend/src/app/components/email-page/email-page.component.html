@@ -1,7 +1,7 @@
-<div class="p-4 w-40">
-    <h1>Email Response Generator</h1>
-    <p>Welcome to my email response generator. </p> 
-    <p>Copy and Paste an email into the text chat and get started!</p>
+<div class="p-4 container items-center pt-28 lg:pt-36 email-div">
+    <h1 class="text-center">Email Response Generator</h1>
+    <p class="text-center">Welcome to my email response generator. </p> 
+    <p class="text-center">Copy and Paste an email into the text chat and get started!</p>
     
     <form class="">
         <div class="form-group mt-3">
@@ -27,8 +27,13 @@
         </div>
         <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit()">Submit</button>
         <br>
-        <h3>Response: </h3>
-        <p style="white-space: pre-line">{{response}}</p>
+        @if(response){
+          <h3 class="text-center">Response: </h3>
+          <p style="white-space: pre-line">{{response}}</p>
+        }
+        
       </form>
     
   </div>
+
+  
