@@ -1,2 +1,2 @@
-# emailResponseGenerator
-Email Response Generator created using Angular, Spring Boot and Google Gemini
+# emailResponseGeneratorAI
+AI Email Response Generator created using Angular, Spring Boot and Google Gemini
