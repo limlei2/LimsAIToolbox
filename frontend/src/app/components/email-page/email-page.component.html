@@ -1,24 +1,24 @@
-<div class="p-4 container items-center pt-28 lg:pt-36 email-div">
+<div class="p-4 container items-center pt-28 lg:pt-36 email-div h-full">
     <h1 class="text-center">Email Response Generator</h1>
     <p class="text-center">Welcome to my email response generator. </p> 
     <p class="text-center">Copy and Paste an email into the text chat and get started!</p>
     
-    <form class="">
+    <form class="sm:w-90 md:w-110 lg:w-130">
         <div class="form-group mt-3">
           <label for="exampleInputEmail1">Email Content</label>
           <textarea 
             autosize
             [(ngModel)]="emailObj.emailContent" 
             name="email" 
-            class="form-control" 
+            class="form-control resize-y min-h-60" 
             id="dynamicTextArea" 
             aria-describedby="emailHelp" 
-            placeholder="Enter contents of email">
-          </textarea>
+            placeholder="Enter contents of email"
+            style="width: 100%;"></textarea>
         </div>
         <div class="form-group mt-3">
           <label for="exampleInputPassword1">Tone</label>
-          <select [(ngModel)]="emailObj.tone" name="tone" class="form-control" aria-label="Default select example">
+          <select [(ngModel)]="emailObj.tone" name="tone" class="form-control" aria-placeholder="Please choose an option">
             <option selected disabled>Please choose an option</option>
             <option>Professional</option>
             <option>Casual</option>

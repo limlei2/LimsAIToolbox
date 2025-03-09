@@ -67,8 +67,10 @@ public class RecipeGeneratorService {
         StringBuilder prompt = new StringBuilder();
         prompt.append("Generate a recipe using the following ingredients: ");
         prompt.append(recipeRequest.getIngredients()).append(". ");
-        prompt.append("Use a time constraint of ").append(recipeRequest.getTime()).append(" minutes.");
-        prompt.append("Use a difficulty level of ").append(recipeRequest.getDifficulty()).append(".");
+        prompt.append("Use a time constraint of ").append(recipeRequest.getTime()).append(". ");
+        prompt.append("Use a difficulty level of ").append(recipeRequest.getDifficulty()).append(". ");
+        prompt.append("Give the reply in 2 parts, the first part must be headered 'Part 1:' for the recipe and the second part must be headered 'Part 2:' for the instructions. Do not write any words before Part 1. ");
+        prompt.append("Do not give too much detail.");
         return prompt.toString();
     }
 }
