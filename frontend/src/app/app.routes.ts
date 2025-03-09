@@ -3,6 +3,7 @@ import { EmailPageComponent } from './components/email-page/email-page.component
 import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
+import { ResumeHelperComponent } from './components/resume-helper/resume-helper.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path:'contactme',
         component:ContactMeComponent
+    },
+    {
+        path:'resume',
+        component:ResumeHelperComponent
     }
 ];

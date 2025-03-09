@@ -71,6 +71,7 @@ public class RecipeGeneratorService {
         prompt.append("Use a difficulty level of ").append(recipeRequest.getDifficulty()).append(". ");
         prompt.append("Give the reply in 2 parts, the first part must be headered 'Part 1:' for the recipe and the second part must be headered 'Part 2:' for the instructions. Do not write any words before Part 1. ");
         prompt.append("Do not give too much detail.");
+        prompt.append("Do not style any words. Leave them as plain text. ");
         return prompt.toString();
     }
 }

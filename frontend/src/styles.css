@@ -10,4 +10,8 @@
 
 * {
     font-family: "montserrat";
+    box-sizing: border-box;
+
 }
+
+html { background-color: var(--color-gray-200) }
