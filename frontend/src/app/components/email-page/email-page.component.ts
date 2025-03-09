@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize';
 
 @Component({
   selector: 'app-email-page',
-  imports: [FormsModule],
+  imports: [FormsModule, AutosizeModule],
   templateUrl: './email-page.component.html',
   styleUrl: './email-page.component.css'
 })
@@ -27,7 +28,6 @@ export class EmailPageComponent {
       if(result){
         alert("Message Generated Successfully")
         this.response = result;
-        console.log(result);
       } else {
         console.log(result);
       }

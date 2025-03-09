@@ -1,4 +1,4 @@
-package dev.limlei2.emailWriterAI;
+package dev.limlei2.limsToolbox.recipe;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,8 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.util.Map;
 
 @Service
-public class EmailGeneratorService {
-
+public class RecipeGeneratorService {
     private final WebClient webClient;
 
     @Value("${gemini.api.url}")
@@ -18,13 +17,13 @@ public class EmailGeneratorService {
     @Value("${gemini.api.key}")
     private String geminiApiKey;
 
-    public EmailGeneratorService(WebClient.Builder webClientBuilder){
+    public RecipeGeneratorService(WebClient.Builder webClientBuilder){
         this.webClient = webClientBuilder.build();
     }
 
-    public String generateEmailReply(EmailRequest emailRequest){
+    public String generateRecipeReply(RecipeRequest recipeRequest){
         //Build a Prompt
-        String prompt = buildPrompt(emailRequest);
+        String prompt = buildPrompt(recipeRequest);
 
         //Craft a Request
         Map<String, Object> requestBody = Map.of(
@@ -64,13 +63,14 @@ public class EmailGeneratorService {
         }
     }
 
-    private String buildPrompt(EmailRequest emailRequest){
+    private String buildPrompt(RecipeRequest recipeRequest){
         StringBuilder prompt = new StringBuilder();
-        prompt.append("Generate a professional email reply for the following email content. Please don't generate a subject line. ");
-        if(emailRequest.getTone() != null && !emailRequest.getTone().isEmpty()){
-            prompt.append("Use a ").append(emailRequest.getTone()).append(" tone.");
-        }
-        prompt.append("\nOriginal email: \n").append(emailRequest.getEmailContent());
+        prompt.append("Generate a recipe using the following ingredients: ");
+        prompt.append(recipeRequest.getIngredients()).append(". ");
+        prompt.append("Use a time constraint of ").append(recipeRequest.getTime()).append(". ");
+        prompt.append("Use a difficulty level of ").append(recipeRequest.getDifficulty()).append(". ");
+        prompt.append("Give the reply in 2 parts, the first part must be headered 'Part 1:' for the recipe and the second part must be headered 'Part 2:' for the instructions. Do not write any words before Part 1. ");
+        prompt.append("Do not give too much detail.");
         return prompt.toString();
     }
 }

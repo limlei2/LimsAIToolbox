@@ -1,1 +1,52 @@
-<router-outlet/>
+<div class="flex flex-row h-screen">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/5133/5133626.png">
+            <h2>Lim's AI Toolbox</h2>
+        </div>
+        <ul class="sidebar-links">
+            <h4>
+            <span>Main Menu</span>
+            </h4>
+            <li>
+            <a href="/home">
+                <span class="material-symbols-outlined">home</span>
+                Home
+            </a>
+            </li>
+            <h4>
+            <span>Tools</span>
+            </h4>
+            <li>
+            <a href="/email">
+                <span class="material-symbols-outlined">email</span>
+                Email Replier
+            </a>
+            </li>
+            <li>
+            <a href="/recipe">
+                <span class="material-symbols-outlined">book</span>
+                Recipe Creator
+            </a>
+            </li>
+            <h4>
+            <span>More from Me</span>
+            </h4>
+            <li>
+            <a href="/contactme">
+                <span class="material-symbols-outlined">phone</span>
+                Contact Me
+            </a>
+            </li>
+            <li>
+            <a href="https://limlei.me" target="_blank">
+                <span class="material-symbols-outlined">person</span>
+                My Page
+            </a>
+            </li>
+        </ul>
+    </aside>
+    <div class="flex-1 bg-gray-200 pl-72">
+        <router-outlet class=""/>
+    </div>
+</div>
