@@ -4,6 +4,7 @@ import { RecipePageComponent } from './components/recipe-page/recipe-page.compon
 import { HomeComponent } from './components/home/home.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { ResumeHelperComponent } from './components/resume-helper/resume-helper.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path:'resume',
         component:ResumeHelperComponent
+    },
+    {
+        path:'chat',
+        component:ChatbotComponent
     }
 ];
