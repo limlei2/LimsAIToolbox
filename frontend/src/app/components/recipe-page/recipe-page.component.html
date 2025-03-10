@@ -1,26 +1,25 @@
-<div class="p-4 container items-center pt-28 lg:pt-36 h-max mx-auto bg-gray-200 ">
-    <h2 class="text-center text-3xl font-bold text-gray-800">Welcome to the Recipe Generator</h2>
+<div class="p-4 container items-center pt-28 lg:pt-36 h-max mx-auto text-gray-400">
+    <h2 class="text-center !text-gray-100 pt-10 pb-10 !font-bold">Welcome to the Recipe Generator</h2>
     <p class="text-center">Add in your ingredients below and choose your time constraint and difficulty to get started!</p>
     @if(part1) {
         <div class="flex flex-row">
             <div class="pt-10 items-center w-1/3">
-                <h2 class="text-center text-2xl font-semibold text-gray-700">Ingredients: </h2>
+                <h2 class="text-center text-2xl font-semibold !text-gray-100">Ingredients: </h2>
                 <form class="space-y-4">
                     <div class="form-group mt-3">
-                        <label for="exampleInputEmail1" class="block text-sm font-medium text-gray-700">Ingredient List</label>
+                        <label class="block text-sm font-medium">Ingredient List</label>
                         <textarea 
                             autosize
                             [(ngModel)]="recipeObj.ingredients"
                             name="email" 
-                            class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="dynamicTextArea" 
-                            aria-describedby="emailHelp" 
+                            class="resize-y min-h-20 rounded-xl p-2 mt-2"
                             placeholder="Enter all the ingredients"
-                            style="width: 100%;"></textarea>
+                            style="width: 100%; background-color: #242c40;">
+                        </textarea>
                       </div>
                     <div class="form-group mt-3">
-                        <label for="exampleInputPassword1" class="block text-sm font-medium text-gray-700">Time Constraint</label>
-                        <select [(ngModel)]="recipeObj.time" name="tone" class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Default select example">
+                        <label class="ml-2">Time Constraint</label>
+                        <select [(ngModel)]="recipeObj.time" name="tone" class="w-full h-10 rounded-xl mt-2 p-2" style="background-color: #242c40;">
                           <option selected disabled>Please choose an option</option>
                           <option>0 - 30 mins</option>
                           <option>30 - 60 mins</option>
@@ -28,22 +27,23 @@
                         </select>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="exampleInputPassword1" class="block text-sm font-medium text-gray-700">Difficulty</label>
-                        <select [(ngModel)]="recipeObj.difficulty" name="difficulty" class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Default select example">
+                        <label class="">Difficulty</label>
+                        <select [(ngModel)]="recipeObj.difficulty" name="difficulty" class="w-full h-10 rounded-xl mt-2 p-2" style="background-color: #242c40;">
                           <option selected disabled>Please choose an option</option>
                           <option>Beginner</option>
                           <option>Amateur</option>
                           <option>Master Chef</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" (click)="onSubmit()">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit()">Submit</button>
+           
                 </form>
             </div>
             <div class="pt-10 pl-10 w-2/3">
-                <h2 class="text-center text-2xl font-semibold text-gray-700">Recipe: </h2>
+                <h2 class="text-center text-2xl font-semibold !text-gray-100">Recipe: </h2>
                 <div class="flex flex-row">
-                    <p style="white-space: pre-line" class="pl-10 pr-10 pt-10 w-1/2 bg-gray-100 rounded-lg shadow-md"><b>Ingredients:</b> {{part1}}</p>
-                    <p style="white-space: pre-line" class="pl-10 pr-10 pt-10 w-1/2 bg-gray-100 rounded-lg shadow-md"><b>Instructions:</b> {{part2}}</p>
+                    <p style="white-space: pre-line; background-color: #242c40;" class="pl-10 pr-10 pt-10 w-1/2 rounded-lg shadow-md border-2"><b>Ingredients:</b> {{part1}}</p>
+                    <p style="white-space: pre-line; background-color: #242c40;" class="pl-10 pr-10 pt-10 w-1/2 rounded-lg shadow-md border-2"><b>Instructions:</b> {{part2}}</p>
                 </div>
             </div>
         </div>
@@ -51,36 +51,35 @@
         <div class="container p-4 items-center w-1/2 flex flex-col justify-items-center">
             <form class="space-y-4  w-1/2 items-center">
                 <div class="form-group mt-3">
-                    <label for="exampleInputEmail1" class="block text-sm font-medium text-gray-700">Ingredient List</label>
+                    <label class="block text-sm font-medium ">Ingredient List</label>
                     <textarea 
                         autosize
                         [(ngModel)]="recipeObj.ingredients"
                         name="email" 
-                        class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="dynamicTextArea" 
-                        aria-describedby="emailHelp" 
+                        class="resize-y min-h-20 rounded-xl p-2 mt-2"
                         placeholder="Enter all the ingredients"
-                        style="width: 100%;"></textarea>
+                        style="width: 100%; background-color: #242c40;">
+                    </textarea>
                   </div>
                 <div class="form-group mt-3">
-                    <label for="exampleInputPassword1" class="block text-sm font-medium text-gray-700">Time Constraint</label>
-                    <select [(ngModel)]="recipeObj.time" name="tone" class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Default select example">
-                      <option selected disabled>Please choose an option</option>
+                    <label class="ml-2">Time Constraint</label>
+                    <select [(ngModel)]="recipeObj.time" name="tone" class="w-full h-10 rounded-xl mt-2 p-2" style="background-color: #242c40;">
+                      <option value ='' selected disabled>Please choose an option</option>
                       <option>0 - 30 mins</option>
                       <option>30 - 60 mins</option>
                       <option>60 mins+</option>
                     </select>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="exampleInputPassword1" class="block text-sm font-medium text-gray-700">Difficulty</label>
-                    <select [(ngModel)]="recipeObj.difficulty" name="difficulty" class="form-control block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Default select example">
-                      <option selected disabled>Please choose an option</option>
+                    <label class="">Difficulty</label>
+                    <select [(ngModel)]="recipeObj.difficulty" name="difficulty" class="w-full h-10 rounded-xl mt-2 p-2" style="background-color: #242c40;">
+                      <option selected disabled value="">Please choose an option</option>
                       <option>Beginner</option>
                       <option>Amateur</option>
                       <option>Master Chef</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" (click)="onSubmit()">Submit</button>
+                <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit()">Submit</button>
             </form>
         </div>
         

@@ -23,7 +23,6 @@ export class EmailPageComponent {
   http = inject(HttpClient);
   
   onSubmit(){
-    console.log(this.emailObj);
     this.http.post(`${this.apiUrl}/generate`, this.emailObj, {responseType: 'text'}).subscribe((result: any) => {
       if(result){
         alert("Message Generated Successfully")

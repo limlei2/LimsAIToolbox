@@ -1,1 +1,22 @@
-<p>chatbot works!</p>
+<div class="p-4 container items-center pt-28 lg:pt-36 h-max bg-gray-200 flex flex-col w-full">
+
+        <h1 class="text-center">Lim's Chatbot</h1>
+        <div>
+            <form class="sm:w-90 md:w-110 lg:w-130 pt-3">
+                <p>Type in your question:</p>
+                <textarea
+                    [(ngModel)]="chat.question"
+                    name="question"
+                    class="bg-white p-2 !rounded min-h-20 w-full"
+                    placeholder="Enter your question"
+                ></textarea>
+                <br>
+                <button class="btn btn-primary mt-3" (click)="onSubmit()">Send</button>
+            </form>
+            
+        </div>
+        @if(response){
+            <h2 class="text-center pt-5">Response:</h2>
+            <p class="whitespace-pre-line w-3/4 pt-4">{{response}}</p>
+        }
+</div>

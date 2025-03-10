@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AutosizeDirective, AutosizeModule } from 'ngx-autosize';
 
 @Component({
   selector: 'app-recipe-page',
-  imports: [FormsModule],
+  imports: [FormsModule, AutosizeModule],
   templateUrl: './recipe-page.component.html',
   styleUrl: './recipe-page.component.css'
 })
