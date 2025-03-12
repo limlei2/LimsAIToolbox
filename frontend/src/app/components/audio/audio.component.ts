@@ -19,6 +19,7 @@ export class AudioComponent {
   http = inject(HttpClient);
 
   onFileChange(event: any){
+    console.log(this.file);
     if(event.target.files.length > 0){
       this.file = event.target.files[0];
     }
