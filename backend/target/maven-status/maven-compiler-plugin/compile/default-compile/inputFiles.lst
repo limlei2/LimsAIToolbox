@@ -1,4 +1,9 @@
-/Users/limlei/Documents/GitHub/emailWriterAI/src/main/java/dev/limlei2/emailWriterAI/EmailGeneratorController.java
-/Users/limlei/Documents/GitHub/emailWriterAI/src/main/java/dev/limlei2/emailWriterAI/EmailGeneratorService.java
-/Users/limlei/Documents/GitHub/emailWriterAI/src/main/java/dev/limlei2/emailWriterAI/EmailRequest.java
-/Users/limlei/Documents/GitHub/emailWriterAI/src/main/java/dev/limlei2/emailWriterAI/EmailWriterAiApplication.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/LimsToolboxApplication.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/chat/ChatGeneratorController.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/chat/ChatGeneratorService.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/email/EmailGeneratorController.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/email/EmailGeneratorService.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/email/EmailRequest.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/recipe/RecipeGeneratorController.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/recipe/RecipeGeneratorService.java
+/Users/limlei/Documents/GitHub/LimsAIToolbox/backend/src/main/java/dev/limlei2/limsToolbox/recipe/RecipeRequest.java
