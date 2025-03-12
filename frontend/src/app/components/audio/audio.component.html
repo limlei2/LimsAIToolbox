@@ -1,1 +1,19 @@
-<p>audio works!</p>
+<div>
+    <div class="flex flex-col items-center p-20">
+        <h1 class="text-white !font-bold pb-5">Audio Transcriber</h1>
+        <p>Upload any file in mp3 or wav format to get it transcribed immediately!</p>
+        <div class="flex flex-col">
+            <input (change)="onFileChange($event)" type="file" accept=".mp3, .wav" 
+                class=" "
+            />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit()">Submit</button>
+    </div>
+    @if(result){
+        <div class="flex flex-col items-center">
+            <h2 class="text-white !font-semibold">Transcription Result</h2>
+            <p class="whitespace-pre-line w-3/4 pt-4 text-center">{{result}}</p>
+        </div>
+    }
+    
+</div>
