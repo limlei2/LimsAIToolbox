@@ -1,1 +1,19 @@
-<p>image works!</p>
+<div class="flex flex-col items-center pt-20 lg:w-2xl md:w-md sm:w-sm mx-auto">
+    <h1 class="text-white !font-bold">Image Generator</h1>
+    <p></p>
+    <textarea 
+        autosize
+        [(ngModel)]="prompt"
+        name="prompt" 
+        class="resize-y min-h-20 rounded-xl p-2 mt-2"
+        placeholder="Enter your prompt for the image to be generated"
+        style="width: 100%; background-color: #242c40;">
+    </textarea>
+    <button class="btn btn-primary mt-4" (click)="onSubmit()">Submit</button>
+
+    @if(imgUrls){
+        @for(img of imgUrls; track $index) {
+            <img src={{img}} alt="Image"/>
+        }
+    }
+</div>
