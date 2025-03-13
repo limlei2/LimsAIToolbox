@@ -14,14 +14,26 @@ export class ImageComponent {
   prompt: string = '';
 
   imgUrls: string [] = [];
+  loading: boolean = false;
 
   http = inject(HttpClient);
   apiUrl = 'http://localhost:8080/api/image'
 
   onSubmit(){
-    console.log(`${this.apiUrl}/generate?prompt=${this.prompt}`);
+    this.loading = true;
+    this.imgUrls = [];
     this.http.get(`${this.apiUrl}/generate?prompt=${this.prompt}`).subscribe((result: any) => {
-      this.imgUrls = result;
+      if(result){
+        this.imgUrls = result;
+      } else {
+        alert("An Unknown Error Has Occured")
+      }
+      this.loading = false;
+      this.prompt = '';
+    }, (error: any) => {
+      this.loading = false;
+      this.prompt = '';
+      alert("An Unknown Error Has Occured, Please Try Again.");
     })
   }
 

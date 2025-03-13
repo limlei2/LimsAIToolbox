@@ -12,6 +12,7 @@ export class ResumeHelperComponent {
 
   file: any = null;
   result: string = '';
+  loading: boolean = false;
 
   apiUrl = "http://localhost:8080/api/resume";
 
@@ -24,7 +25,11 @@ export class ResumeHelperComponent {
   }
 
   onSubmit(){
+    this.result = '';
+    this.loading = true;
+
     if(this.file == null){
+      this.loading = false;
       alert("Please Input a Valid File");
     } else {
       console.log(this.file);
@@ -33,7 +38,15 @@ export class ResumeHelperComponent {
       this.http.post(`${this.apiUrl}/generate`, formData, {responseType: 'text'}).subscribe((result: any) => {
         if(result){
           this.result = result;
+        } else {
+          alert("An Unknown Error Has Occured");
         }
+        this.loading = false;
+        this.file = null;
+      }, (error: any) => {
+        this.loading = false;
+        this.file = null;
+        alert("An Unknown Error Has Occured, Please Try Again.");
       })
     }
   }

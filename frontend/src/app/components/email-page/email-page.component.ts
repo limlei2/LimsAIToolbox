@@ -14,6 +14,7 @@ export class EmailPageComponent {
   apiUrl: string = "http://localhost:8080/api/email";
 
   response: String = '';
+  loading: boolean = false;
 
   emailObj: any = {
     emailContent: '',
@@ -23,13 +24,22 @@ export class EmailPageComponent {
   http = inject(HttpClient);
   
   onSubmit(){
+    this.response = '';
+    this.loading = true;
     this.http.post(`${this.apiUrl}/generate`, this.emailObj, {responseType: 'text'}).subscribe((result: any) => {
       if(result){
-        alert("Message Generated Successfully")
         this.response = result;
       } else {
-        console.log(result);
+        alert("An Unknown Error Has Occured");
       }
+      this.loading = false;
+      this.emailObj.emailContent = '';
+      this.emailObj.tone = '';
+    }, (error: any) => {
+      this.loading = false;
+      this.emailObj.emailContent = '';
+      this.emailObj.tone = '';
+      alert("An Unknown Error Has Occured, Please Try Again.");
     })
   }
 

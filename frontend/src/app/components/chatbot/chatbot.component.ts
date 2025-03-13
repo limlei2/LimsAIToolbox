@@ -13,6 +13,8 @@ export class ChatbotComponent {
   chat: any = {
     question: ''
   }
+
+  loading: boolean = false;
   
   apiUrl: string = "http://localhost:8080/api/chat";
 
@@ -21,11 +23,20 @@ export class ChatbotComponent {
   http = inject(HttpClient);
 
   onSubmit(){
+    this.loading = true;
+    this.response = '';
     this.http.post(`${this.apiUrl}/generate`, this.chat, {responseType: 'text'}).subscribe((result: any) => {
       if(result){
-        console.log(this.chat);
         this.response = result;
+      } else {
+        alert("An Unknown Error Has Occured");
       }
+      this.loading = false;
+      this.chat.question = '';
+    }, (error: any) => {
+      this.loading = false;
+      this.chat.question = '';
+      alert("An Unknown Error Has Occured, Please Try Again.");
     })
   }
   
