@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AutosizeModule } from 'ngx-autosize';
+import { AutosizeModule } from 'ngx-autosize-ssr';
 
 @Component({
   selector: 'app-email-page',

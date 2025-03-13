@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize-ssr';
 
 @Component({
   selector: 'app-chatbot',
-  imports: [FormsModule],
+  imports: [FormsModule, AutosizeModule],
   templateUrl: './chatbot.component.html',
   styleUrl: './chatbot.component.css'
 })
