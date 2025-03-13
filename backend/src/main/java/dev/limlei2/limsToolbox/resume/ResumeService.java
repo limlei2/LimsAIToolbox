@@ -69,7 +69,7 @@ public class ResumeService {
                 "give examples of rephrasing or restructuring sentences to make them more impactful\n" +
                 "provide possible steps or projects to work on in the future to improve my resume");
         prompt.append("Do not point out any typos in the resume. Instead, focus on the content of the resume.");
-        prompt.append("Do not style any words in the reply. Leave them as plain text.");
+        prompt.append("Do not style any words in the reply. Leave them as plain text. Do not use **bold** or _italic_ formatting.");
         return prompt.toString();
     }
 
