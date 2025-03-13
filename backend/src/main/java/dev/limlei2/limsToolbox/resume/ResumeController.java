@@ -5,6 +5,8 @@ import dev.limlei2.limsToolbox.recipe.RecipeRequest;
 import lombok.AllArgsConstructor;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,22 +29,43 @@ public class ResumeController {
         }
 
         try {
-            String pdfText = extractTextFromPdf(file);
+            String fileType = getFileType(file);
 
-            // Now 'pdfText' contains the text content of the PDF file,
-            // ready to be included in your Gemini API call.
-            String geminiResponse = resumeService.generateResume(pdfText);
+            String extractedText;
+            if ("pdf".equalsIgnoreCase(fileType)) {
+                extractedText = extractTextFromPdf(file);
+            } else if ("docx".equalsIgnoreCase(fileType)) {
+                extractedText = extractTextFromDocx(file);
+            } else {
+                return "Unsupported file type.  Only PDF and DOCX files are allowed.";
+            }
+
+            String geminiResponse = resumeService.generateResume(extractedText);
             return geminiResponse;
 
         } catch (Exception e) {
             return "Error processing PDF: " + e.getMessage();
         }
     }
+    private String getFileType(MultipartFile file) {
+        String filename = file.getOriginalFilename();
+        if (filename != null && filename.contains(".")) {
+            return filename.substring(filename.lastIndexOf(".") + 1).toLowerCase();
+        }
+        return ""; // Unknown file type
+    }
 
     private String extractTextFromPdf(MultipartFile file) throws Exception {
         try (PDDocument document = PDDocument.load(file.getInputStream())) {
             PDFTextStripper stripper = new PDFTextStripper();
             return stripper.getText(document);
+        }
+    }
+
+    private String extractTextFromDocx(MultipartFile file) throws Exception {
+        try (XWPFDocument document = new XWPFDocument(file.getInputStream())) {
+            XWPFWordExtractor extractor = new XWPFWordExtractor(document);
+            return extractor.getText();
         }
     }
 }
