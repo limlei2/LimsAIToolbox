@@ -11,19 +11,17 @@ import { AutosizeModule } from 'ngx-autosize';
 })
 export class ImageComponent {
 
-  prompt: String = '';
-  imgUrls: any[] = [];
+  prompt: string = '';
+
+  imgUrls: string [] = [];
 
   http = inject(HttpClient);
   apiUrl = 'http://localhost:8080/api/image'
 
   onSubmit(){
-    console.log(prompt);
-    console.log(`${this.apiUrl}/generate?prompt=${prompt}`);
-    this.http.get(`${this.apiUrl}/generate?prompt=${prompt}`).subscribe((result: any) => {
-      console.log(result);
+    console.log(`${this.apiUrl}/generate?prompt=${this.prompt}`);
+    this.http.get(`${this.apiUrl}/generate?prompt=${this.prompt}`).subscribe((result: any) => {
       this.imgUrls = result;
-      console.log(this.imgUrls);
     })
   }
 
