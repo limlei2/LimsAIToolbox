@@ -1,18 +1,6 @@
 # Lim's AI Toolbox
 Toolbox collection of useful tools such as recipe creation and email reply generation with AI created using Angular, Spring Boot with the use of Google Gemini and OpenAI APIs
 
-#### Project Initialization
-
-Run `npm install` in the frontend directory to download all required dependencies
-
-#### Running the Project
-
-Run `ng s` in the frontend directory to run the Angular frontend app
-
-# Angular Spring Boot Application
-
-This repository contains a full-stack application built with Angular for the frontend and Spring Boot for the backend. This guide will walk you through the steps to set up and run both the frontend and backend applications.
-
 ## Prerequisites
 
 Before you begin, ensure you have the following installed on your machine:
