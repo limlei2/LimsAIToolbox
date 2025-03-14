@@ -23,6 +23,7 @@ Before you begin, ensure you have the following installed on your machine:
    cd backend
    mvn clean install
    ```
+   NOTE: Before running `mvn clean install`, you have to first add the API keys of OpenAI and Gemini into application.properties. See "Environment Configuration" below
 
 3. **Run the Backend Application**
    After the dependencies are installed, you can run the Spring Boot application using:
