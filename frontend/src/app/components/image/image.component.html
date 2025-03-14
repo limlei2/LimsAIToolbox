@@ -25,7 +25,7 @@
 
     @if(imgUrls){
         @for(img of imgUrls; track $index) {
-            <img src={{img}} alt="Image" class="pt-5 pb-5"/>
+            <a target="_blank" href={{img}}><img src={{img}} alt="Image" class="pt-5 pb-5"/></a>
         }
     }
 </div>
