@@ -54,7 +54,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 ## Running the Full Application
 
-To run the full application, you need both the backend and frontend running simultaneously. Follow these steps:
+To run the full application, you need both the backend and frontend running simultaneously.
 
 Once both applications are running, you can access the full application by navigating to `http://localhost:4200` in your web browser.
 
@@ -62,7 +62,7 @@ Once both applications are running, you can access the full application by navig
 
 To be able to run the application properly, you will need to add your own API keys to the backend for OpenAI and Gemini.
 
-- **Backend**: Locate the application.properties in the resources directory and replace ${GEMINI_KEY} and ${OPENAI_KEY}
+- **Backend**: Locate the application.properties in the resources directory and replace ${GEMINI_KEY} and ${OPENAI_KEY} with the API keys
 
 ## Contributing
 
