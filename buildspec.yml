@@ -15,7 +15,7 @@ phases:
       - cd backend && docker build -t $IMAGE_NAME:$IMAGE_TAG .
       - docker images
       - echo Pushing Docker image to Docker Hub
-      - cd backend && docker push $IMAGE_NAME:$IMAGE_TAG
+      - cd backend && docker push $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
 
   post_build:
     commands:
