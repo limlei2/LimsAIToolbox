@@ -9,6 +9,13 @@ phases:
       - echo Logging in to Docker Hub
       - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
 
+  pre_build:
+    commands:
+      - echo Verifying directory structure
+      - ls -la
+      - cd backend
+      - ls -la
+      
   build:
     commands:
       - echo Building Docker image
