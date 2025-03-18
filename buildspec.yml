@@ -9,20 +9,11 @@ phases:
       - echo Logging in to Docker Hub
       - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
 
-  pre_build:
-    commands:
-      - echo Verifying directory structure
-      - ls -la
-      - cd backend
-      - ls -la
-      - cd backend && ls -la
-
   build:
     commands:
       - echo Building Docker image
-      - cd backend
-      - mvn clean install -DskipTests
-      - docker build -t $IMAGE_NAME . --no-cache
+      - cd backend && mvn clean install -DskipTests
+      - cd backend && docker build -t $IMAGE_NAME . --no-cache
       - echo Pushing Docker image to Docker Hub
       - docker push $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
 
