@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-audio',
@@ -9,11 +10,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './audio.component.css'
 })
 export class AudioComponent {
+  
 
   file: any = null;
   loading: boolean = false;
 
-  apiUrl: string = "http://localhost:8080/api/audio";
+  private api = environment.apiUrl;
+  apiUrl: string = `${this.api}/api/audio`;
 
   result: string = '';
 

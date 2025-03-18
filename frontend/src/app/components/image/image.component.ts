@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AutosizeModule } from 'ngx-autosize-ssr';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-image',
@@ -17,7 +18,8 @@ export class ImageComponent {
   loading: boolean = false;
 
   http = inject(HttpClient);
-  apiUrl = 'http://localhost:8080/api/image'
+  private api = environment.apiUrl;
+  apiUrl = `${this.api}/api/image`;
 
   onSubmit(){
     this.loading = true;

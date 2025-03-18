@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-resume-helper',
@@ -14,7 +15,8 @@ export class ResumeHelperComponent {
   result: string = '';
   loading: boolean = false;
 
-  apiUrl = "http://localhost:8080/api/resume";
+  private api = environment.apiUrl;
+  apiUrl = `${this.api}/api/resume`;
 
   http = inject(HttpClient);
 

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AutosizeModule } from 'ngx-autosize-ssr';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-recipe-page',
@@ -13,7 +14,8 @@ export class RecipePageComponent {
 
   http = inject(HttpClient);
 
-  apiUrl: string = "http://localhost:8080/api/recipe";
+  private api = environment.apiUrl;
+  apiUrl: string = `${this.api}/api/recipe`;
   loading: boolean = false;
 
   recipeObj: any = {
