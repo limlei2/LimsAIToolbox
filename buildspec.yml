@@ -12,7 +12,6 @@ phases:
   build:
     commands:
       - echo Building Docker image
-      - cd backend && mvn clean install -DskipTests
       - cd backend && docker build -t $IMAGE_NAME . --no-cache
       - echo Pushing Docker image to Docker Hub
       - docker push $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
