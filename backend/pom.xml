@@ -11,8 +11,8 @@
 	<groupId>dev.limlei2</groupId>
 	<artifactId>limsToolbox</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>emailWriterAI</name>
-	<description>Demo project for Spring Boot</description>
+	<name>LimsToolbox</name>
+	<description>AI Toolbox Backend</description>
 	<url/>
 	<licenses>
 		<license/>
