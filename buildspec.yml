@@ -5,6 +5,8 @@ env:
     DOCKER_HUB_USERNAME: "limlei2"
     IMAGE_NAME: "toolbox-deployment"
     IMAGE_TAG: "latest"
+  secrets-manager:
+    DOCKER_HUB_PASSWORD: "DockerHubPassword"
 
 phases:
   install:
@@ -15,7 +17,6 @@ phases:
       - echo Installing AWS CLI
       - apt-get install -y awscli
       - echo Logging in to Docker Hub
-      - DOCKER_HUB_PASSWORD=$(aws secretsmanager get-secret-value --secret-id DockerHubPassword --query SecretString --output text)
       - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
 
   build:
