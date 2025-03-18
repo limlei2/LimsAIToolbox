@@ -1,25 +1,11 @@
-version: 0.2
-
-env:
-  variables:
-    DOCKER_HUB_USERNAME: "limlei2"
-    IMAGE_NAME: "toolbox-deployment"
-    IMAGE_TAG: "latest"
-  secrets-manager:
-    DOCKER_HUB_PASSWORD: "DockerHubPassword"
+version: 0.1
 
 phases:
-  pre_build:
-    commands:
-      - echo Docker Hub Username $DOCKER_HUB_USERNAME
-      - echo Docker Hub Password $DOCKER_HUB_PASSWORD
   install:
     commands:
       - echo Installing Docker
       - apt-get update
       - apt-get install -y docker.io
-      - echo Installing AWS CLI
-      - apt-get install -y awscli
       - echo Logging in to Docker Hub
       - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
 
