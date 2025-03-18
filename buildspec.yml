@@ -17,6 +17,7 @@ phases:
       - echo Installing AWS CLI
       - apt-get install -y awscli
       - echo Logging in to Docker Hub
+      - echo "Docker Hub Password: $DOCKER_HUB_PASSWORD"
       - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
 
   build:
