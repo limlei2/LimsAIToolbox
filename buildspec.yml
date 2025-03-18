@@ -11,8 +11,8 @@ env:
 phases:
   pre_build:
     commands:
-      - echo "Docker Hub Username: $DOCKER_HUB_USERNAME"
-      - echo "Docker Hub Password: $DOCKER_HUB_PASSWORD"
+      - echo Docker Hub Username $DOCKER_HUB_USERNAME
+      - echo Docker Hub Password $DOCKER_HUB_PASSWORD
   install:
     commands:
       - echo Installing Docker
