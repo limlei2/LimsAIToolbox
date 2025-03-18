@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    DOCKER_HUB_USERNAME: "limlei2"
+    IMAGE_NAME: "toolbox-deployment"
+    IMAGE_TAG: "latest"
+
+phases:
+  install:
+    commands:
+      - echo Installing Docker
+      - apt-get update
+      - apt-get install -y docker.io
+      - echo Installing AWS CLI
+      - apt-get install -y awscli
+      - echo Logging in to Docker Hub
+      - DOCKER_HUB_PASSWORD=$(aws secretsmanager get-secret-value --secret-id DockerHubPassword --query SecretString --output text)
+      - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
+
+  build:
+    commands:
+      - echo Building Docker image
+      - docker build --platform linux/amd64 -t $IMAGE_NAME:$IMAGE_TAG .
+      - echo Pushing Docker image to Docker Hub
+      - docker push $IMAGE_NAME:$IMAGE_TAG
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
