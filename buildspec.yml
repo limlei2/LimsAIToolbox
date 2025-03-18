@@ -15,7 +15,8 @@ phases:
       - ls -la
       - cd backend
       - ls -la
-      
+      - cd backend && ls -la
+
   build:
     commands:
       - echo Building Docker image
