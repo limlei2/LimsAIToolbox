@@ -13,9 +13,8 @@ phases:
     commands:
       - echo Building Docker image
       - cd backend && docker build -t toolbox-deployment .
-      - docker images
-      - echo Pushing Docker image to Docker Hub
       - docker tag toolbox-deployment limlei2/toolbox-deployment:latest
+      - echo Pushing Docker image to Docker Hub
       - docker push limlei2/toolbox-deployment:latest
 
   post_build:
