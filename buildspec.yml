@@ -12,11 +12,11 @@ phases:
   build:
     commands:
       - echo Building Docker image
-      - cd backend && docker build -t $IMAGE_NAME:$IMAGE_TAG .
+      - cd backend && docker build -t toolbox-deployment .
       - docker images
       - echo Pushing Docker image to Docker Hub
-      - docker tag $IMAGE_NAME:$IMAGETAG $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
-      - docker push $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
+      - docker tag toolbox-deployment limlei2/toolbox-deployment:latest
+      - docker push limlei2/toolbox-deployment:latest
 
   post_build:
     commands:
