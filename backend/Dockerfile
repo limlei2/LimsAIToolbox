@@ -14,6 +14,12 @@ WORKDIR /app
 
 COPY --from=build /app/target/limsToolbox-0.0.1-SNAPSHOT.jar .
 
+ARG GEMINI_KEY
+ARG OPENAI_KEY
+
+ENV GEMINI_KEY=${GEMINI_KEY}
+ENV OPENAI_KEY=${OPENAI_KEY}
+
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "limsToolbox-0.0.1-SNAPSHOT.jar"]

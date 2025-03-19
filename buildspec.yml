@@ -12,7 +12,8 @@ phases:
   build:
     commands:
       - echo Building Docker image
-      - cd backend && docker build -t toolbox-deployment .
+      - cd backend && docker build -t toolbox-deployment --build-arg GEMINI_KEY=${GEMINI_KEY} --build-arg OPENAI_KEY=${OPENAI_KEY} .
+      
       - docker tag toolbox-deployment limlei2/toolbox-deployment:latest
       - echo Pushing Docker image to Docker Hub
       - docker push limlei2/toolbox-deployment:latest
