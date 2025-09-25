@@ -63,7 +63,3 @@ Once both applications are running, you can access the full application by navig
 To be able to run the application properly, you will need to add your own API keys to the backend for OpenAI and Gemini.
 
 - **Backend**: Locate the application.properties in the resources directory and replace ${GEMINI_KEY} and ${OPENAI_KEY} with the API keys
-
-## Contributing
-
-Feel free to contribute to this project by submitting pull requests or opening issues. Your contributions are welcome!
